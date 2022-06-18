@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".presentation.GameFragment">
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:src="@drawable/grass" />
+
+
+
+    <TextView
+        android:id="@+id/tv_score"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="@color/tv_welcome_record"
+        android:textSize="35sp"
+        android:textStyle="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="@string/tv_score" />
+
+
+    <TextView
+        android:id="@+id/tvTimer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="00:00" />
+
+    <TextView
+        android:id="@+id/tv_oval1"
+        style="@style/oval"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.182"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTimer"
+        app:layout_constraintVertical_bias="0.26" />
+
+    <ImageView
+        android:id="@+id/iv_as_oval1"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:src="@drawable/mole_as_oval"
+        app:layout_constraintEnd_toEndOf="@+id/tv_oval1"
+        app:layout_constraintStart_toStartOf="@+id/tv_oval1"
+        app:layout_constraintTop_toTopOf="@+id/tv_oval1"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_oval1"/>
+
+    <TextView
+        android:id="@+id/tv_oval2"
+        style="@style/oval"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.88"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTimer"
+        app:layout_constraintVertical_bias="0.072" />
+
+    <ImageView
+        android:id="@+id/iv_as_oval2"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:src="@drawable/mole_as_oval"
+        app:layout_constraintEnd_toEndOf="@+id/tv_oval2"
+        app:layout_constraintStart_toStartOf="@+id/tv_oval2"
+        app:layout_constraintTop_toTopOf="@+id/tv_oval2"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_oval2"/>
+
+    <TextView
+        android:id="@+id/tv_oval3"
+        style="@style/oval"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintHorizontal_bias="0.044"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTimer"
+        app:layout_constraintVertical_bias="0.843" />
+
+    <ImageView
+        android:id="@+id/iv_as_oval3"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:src="@drawable/mole_as_oval"
+        app:layout_constraintEnd_toEndOf="@+id/tv_oval3"
+        app:layout_constraintStart_toStartOf="@+id/tv_oval3"
+        app:layout_constraintTop_toTopOf="@+id/tv_oval3"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_oval3"/>
+
+    <TextView
+        android:id="@+id/tv_oval4"
+        style="@style/oval"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.603"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTimer"
+        app:layout_constraintVertical_bias="0.403" />
+
+    <ImageView
+        android:id="@+id/iv_as_oval4"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:src="@drawable/mole_as_oval"
+        app:layout_constraintEnd_toEndOf="@+id/tv_oval4"
+        app:layout_constraintStart_toStartOf="@+id/tv_oval4"
+        app:layout_constraintTop_toTopOf="@+id/tv_oval4"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_oval4"/>
+
+    <TextView
+        android:id="@+id/tv_oval5"
+        style="@style/oval"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintHorizontal_bias="0.182"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTimer"
+        app:layout_constraintVertical_bias="0.531" />
+
+    <ImageView
+        android:id="@+id/iv_as_oval5"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:src="@drawable/mole_as_oval"
+        app:layout_constraintEnd_toEndOf="@+id/tv_oval5"
+        app:layout_constraintStart_toStartOf="@+id/tv_oval5"
+        app:layout_constraintTop_toTopOf="@+id/tv_oval5"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_oval5"/>
+
+    <TextView
+        android:id="@+id/tv_oval6"
+        style="@style/oval"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.537"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTimer"
+        app:layout_constraintVertical_bias="0.703" />
+
+    <ImageView
+        android:id="@+id/iv_as_oval6"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:src="@drawable/mole_as_oval"
+        app:layout_constraintEnd_toEndOf="@+id/tv_oval6"
+        app:layout_constraintStart_toStartOf="@+id/tv_oval6"
+        app:layout_constraintTop_toTopOf="@+id/tv_oval6"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_oval6"/>
+
+    <TextView
+        android:id="@+id/tv_oval7"
+        style="@style/oval"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.445"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTimer"
+        app:layout_constraintVertical_bias="0.048" />
+
+    <ImageView
+        android:id="@+id/iv_as_oval7"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:src="@drawable/mole_as_oval"
+        app:layout_constraintEnd_toEndOf="@+id/tv_oval7"
+        app:layout_constraintStart_toStartOf="@+id/tv_oval7"
+        app:layout_constraintTop_toTopOf="@+id/tv_oval7"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_oval7"/>
+
+    <TextView
+        android:id="@+id/tv_oval8"
+        style="@style/oval"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintHorizontal_bias="0.819"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTimer"
+        app:layout_constraintVertical_bias="0.843" />
+
+    <ImageView
+        android:id="@+id/iv_as_oval8"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:src="@drawable/mole_as_oval"
+        app:layout_constraintEnd_toEndOf="@+id/tv_oval8"
+        app:layout_constraintStart_toStartOf="@+id/tv_oval8"
+        app:layout_constraintTop_toTopOf="@+id/tv_oval8"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_oval8"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
