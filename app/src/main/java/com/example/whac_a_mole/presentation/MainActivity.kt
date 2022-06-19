@@ -1,7 +1,8 @@
-package com.example.whac_a_mole
+package com.example.whac_a_mole.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.whac_a_mole.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
