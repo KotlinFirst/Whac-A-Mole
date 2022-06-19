@@ -1,6 +1,8 @@
 package com.example.whac_a_mole.presentation
 
+import android.os.Bundle
 import android.os.CountDownTimer
+import android.util.Log
 import android.view.View
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -13,7 +15,8 @@ class GameViewModel : ViewModel() {
     private var timerEnd: CountDownTimer? = null
     private var timerMole: CountDownTimer? = null
 
-    var result: Int = 0
+    var result = MutableLiveData<Int>()
+
     var record: Int = 0
 
     private var _ovalWithMole=MutableLiveData <Int> ()
@@ -26,13 +29,16 @@ class GameViewModel : ViewModel() {
         nextRandomOval()
     }
 
-    fun filterOnClick(numberOval: Int) {
-        if (_ovalWithMole.value == numberOval) {
-            result++
+    fun filterOnClick() {
+        if (result.value == null){
+            result.value = 1
+
         }
-        result++
-        if (result > record) {
-            record = result
+        Log.d("result", result.value.toString())
+            result.value = result.value!! + 1
+
+        if (result.value!! > record) {
+            record = result.value!!
         }
     }
 
@@ -67,6 +73,9 @@ class GameViewModel : ViewModel() {
             }
 
             override fun onFinish() {
+                val args = Bundle().apply {
+                    putInt(ResultFragment.RESULT_KEY,result.value!!)
+                }
                view.findNavController().navigate(R.id.action_gameFragment_to_resultFragment)
             }
         }
@@ -89,7 +98,7 @@ class GameViewModel : ViewModel() {
     }
 
     companion object {
-        private const val TIMER_APPEARANCE_MOLE = 2000L
+        private const val TIMER_APPEARANCE_MOLE = 500L
         private const val TIMER_MILLIS = 30000L
         private const val MILLIS_IN_SECONDS = 1000L
         private const val SECONDS_IN_MINUTES = 60

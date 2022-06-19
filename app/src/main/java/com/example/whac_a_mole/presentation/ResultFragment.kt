@@ -42,16 +42,21 @@ class ResultFragment : Fragment() {
         binding.buttonPlay.setOnClickListener {
             findNavController().navigate(R.id.action_resultFragment_to_gameFragment)
         }
-        binding.tvResultScore.text = String.format(
-            getString(R.string.tv_result_score),viewModel.result
-        )
+        viewModel.result.observe(viewLifecycleOwner) {
+            binding.tvResultScore.text = String.format(
+                getString(R.string.tv_result_score), requireArguments().getInt(RESULT_KEY) // вероятная ошибка вывода
+            )
+        }
         binding.tvResultRecord.text = String.format(
-            getString(R.string.tv_result_record),viewModel.record
+            getString(R.string.tv_result_record), viewModel.record
         )
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
-        viewModel.result = 0
+        viewModel.result.value = 0
+    }
+    companion object{
+        const val RESULT_KEY = "result"
     }
 }

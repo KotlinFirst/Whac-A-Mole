@@ -44,49 +44,49 @@ class GameFragment : Fragment() {
     private fun clickListener() {
         binding.ivAsOval1.setOnClickListener {
             binding.ivAsOval1.isVisible = false
-            viewModel.filterOnClick(1)
+            viewModel.filterOnClick()
             viewModel.nextRandomOval()
 
         }
         binding.ivAsOval2.setOnClickListener {
             binding.ivAsOval2.isVisible = false
-            viewModel.filterOnClick(2)
+            viewModel.filterOnClick()
             viewModel.nextRandomOval()
 
         }
         binding.ivAsOval3.setOnClickListener {
             binding.ivAsOval3.isVisible = false
-            viewModel.filterOnClick(3)
+            viewModel.filterOnClick()
             viewModel.nextRandomOval()
 
         }
         binding.ivAsOval4.setOnClickListener {
             binding.ivAsOval4.isVisible = false
-            viewModel.filterOnClick(4)
+            viewModel.filterOnClick()
             viewModel.nextRandomOval()
 
         }
         binding.ivAsOval5.setOnClickListener {
             binding.ivAsOval5.isVisible = false
-            viewModel.filterOnClick(5)
+            viewModel.filterOnClick()
             viewModel.nextRandomOval()
 
         }
         binding.ivAsOval6.setOnClickListener {
             binding.ivAsOval6.isVisible = false
-            viewModel.filterOnClick(6)
+            viewModel.filterOnClick()
             viewModel.nextRandomOval()
 
         }
         binding.ivAsOval7.setOnClickListener {
             binding.ivAsOval7.isVisible = false
-            viewModel.filterOnClick(7)
+            viewModel.filterOnClick()
             viewModel.nextRandomOval()
 
         }
         binding.ivAsOval8.setOnClickListener {
             binding.ivAsOval8.isVisible = false
-            viewModel.filterOnClick(8)
+            viewModel.filterOnClick()
             viewModel.nextRandomOval()
 
         }
