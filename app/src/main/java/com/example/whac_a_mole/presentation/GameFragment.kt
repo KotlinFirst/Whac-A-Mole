@@ -1,12 +1,15 @@
 package com.example.whac_a_mole.presentation
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.example.whac_a_mole.R
 import com.example.whac_a_mole.databinding.FragmentGameBinding
 import java.lang.RuntimeException
@@ -123,6 +126,17 @@ class GameFragment : Fragment() {
         viewModel.formatedTime.observe(viewLifecycleOwner) {
             binding.tvTimer.text = it
         }
+        viewModel.observeFitishTimer.observe(viewLifecycleOwner){
+            launchFinishFragment()
+        }
+
+    }
+    fun launchFinishFragment(){
+        val args = Bundle().apply {
+            putInt(ResultFragment.RESULT_KEY,viewModel.result.value!!)
+        }
+        Log.d("argsGameFragment", viewModel.result.value.toString())
+        findNavController().navigate(R.id.action_gameFragment_to_resultFragment, args)
     }
 
     override fun onDestroyView() {

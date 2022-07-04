@@ -15,27 +15,30 @@ class GameViewModel : ViewModel() {
     private var timerEnd: CountDownTimer? = null
     private var timerMole: CountDownTimer? = null
 
-    var result = MutableLiveData<Int>()
+    private var _observeFitishTimer = MutableLiveData<Boolean>()
+    val observeFitishTimer: LiveData<Boolean>
+        get() = _observeFitishTimer
 
+    var result = MutableLiveData<Int>()
     var record: Int = 0
 
-    private var _ovalWithMole=MutableLiveData <Int> ()
+    private var _ovalWithMole = MutableLiveData<Int>()
     val ovalWithMole: LiveData<Int>
-    get() =_ovalWithMole
+        get() = _ovalWithMole
 
-    fun startGame(view:View) {
+    fun startGame(view: View) {
         startTimerEnd(view)
         startTimerMole()
         nextRandomOval()
     }
 
     fun filterOnClick() {
-        if (result.value == null){
+        if (result.value == null) {
             result.value = 1
 
         }
-        Log.d("result", result.value.toString())
-            result.value = result.value!! + 1
+        Log.d("resultViewModel_FilterOnClick", result.value.toString())
+        result.value = result.value!! + 1
 
         if (result.value!! > record) {
             record = result.value!!
@@ -45,7 +48,6 @@ class GameViewModel : ViewModel() {
     private val _formatedTime = MutableLiveData<String>()
     val formatedTime: LiveData<String>
         get() = _formatedTime
-
 
 
     fun nextRandomOval(): Int {
@@ -73,10 +75,7 @@ class GameViewModel : ViewModel() {
             }
 
             override fun onFinish() {
-                val args = Bundle().apply {
-                    putInt(ResultFragment.RESULT_KEY,result.value!!)
-                }
-               view.findNavController().navigate(R.id.action_gameFragment_to_resultFragment)
+                _observeFitishTimer.value = true
             }
         }
         timerEnd?.start()
@@ -88,7 +87,6 @@ class GameViewModel : ViewModel() {
         val leftSeconds = seconds - (minutes * SECONDS_IN_MINUTES)
         return String.format("%02d:%02d", minutes, leftSeconds)
     }
-
 
 
     override fun onCleared() {

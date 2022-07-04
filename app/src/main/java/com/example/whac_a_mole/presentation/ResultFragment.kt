@@ -1,6 +1,7 @@
 package com.example.whac_a_mole.presentation
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -18,6 +19,8 @@ class ResultFragment : Fragment() {
     private val binding: FragmentResultBinding
         get() = _binding ?: throw RuntimeException("FragmentResultBinding = null")
 
+    private var gameResult: Int = 0
+
     private val viewModel: GameViewModel by lazy {
         ViewModelProvider(
             this, ViewModelProvider.AndroidViewModelFactory
@@ -25,6 +28,10 @@ class ResultFragment : Fragment() {
         )[GameViewModel::class.java]
     }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        parseArgs()
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -42,14 +49,20 @@ class ResultFragment : Fragment() {
         binding.buttonPlay.setOnClickListener {
             findNavController().navigate(R.id.action_resultFragment_to_gameFragment)
         }
-        viewModel.result.observe(viewLifecycleOwner) {
+
             binding.tvResultScore.text = String.format(
-                getString(R.string.tv_result_score), requireArguments().getInt(RESULT_KEY) // вероятная ошибка вывода
+                getString(R.string.tv_result_score),
+                gameResult
             )
-        }
+        Log.d("ResultFragment", gameResult.toString())
         binding.tvResultRecord.text = String.format(
-            getString(R.string.tv_result_record), viewModel.record
+            getString(R.string.tv_result_record), viewModel.result.value.toString()
         )
+    }
+    fun parseArgs(){
+        requireArguments().getInt(RESULT_KEY).let {
+gameResult = it
+        }
     }
 
     override fun onDestroyView() {
